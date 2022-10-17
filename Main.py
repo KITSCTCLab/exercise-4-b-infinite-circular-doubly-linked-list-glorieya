@@ -1,40 +1,42 @@
-rom typing import List
+class BinaryTreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.left_child = None
+        self.right_child = None
 
-def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
-  #Function implementing merging of two sorted arrays
-  #Input: nums1 -> array
-  #       m -> number of elements of nums1
-  #       nums2 -> array
-  #       n -> number of elements of nums2
-  l1 = nums1[:]
-  l2 = nums2[:]
-  curr, i, j = 0, 0, 0
-  while i < m and j < n:
-    if l1[i] < l2[j]:
-      nums1[curr] = l1[i]
-      i += 1
+
+def insert(root, new_value) -> BinaryTreeNode:
+    """If binary search tree is empty, make a new node, declare it as root and return the root.
+        If tree is not empty and if new_value is less than value of data in root, add it to left subtree and proceed recursively.
+        If tree is not empty and if new_value is >= value of data in root, add it to right subtree and proceed recursively.
+        Finally, return the root.
+        """
+    # Write your code here
+
+
+def inorder(root) -> None:
+    # Write your code here
+
+
+def preorder(root) -> None:
+    # Write your code here
+
+
+def postorder(root) -> None:
+    # Write your code here
+
+
+# Do not change the following code
+input_data = input()
+flag = True
+root = None
+for item in input_data.split(', '):
+    if flag is True:
+        root = insert(None, int(item))
+        flag = False
     else:
-      nums1[curr] = l2[j]
-      j += 1
-    curr += 1
-  while i < m:
-    nums1[curr] = l1[i]
-    curr += 1
-    i += 1
-  while j < n:
-    nums1[curr] = l2[j]
-    curr += 1
-    j += 1
-
-
-# Do noT change the following code
-nums1 = []
-nums2 = []
-for item in input().split(', '):
-  nums1.append(int(item))
-for item in input().split(', '):
-  nums2.append(int(item))
-m = int(input())
-n = int(input())
-merge(nums1, m, nums2, n)
-print(nums1)
+        insert(root, int(item))
+inorder(root)
+print()
+preorder(root)
+print()
